@@ -17,24 +17,8 @@ blockchain = [
   { "from_user" => "anthony", "to_user" => "evan", "amount" => 1750 }
 ]
 
-BensBalance = 0
-BriansBalance = 0
-EvansBalance = 0
-AnthonysBalance = 0
 
 
-#transactions = Hash.new(0)
-
-for transaction in blockchain
-if transaction["to_user"] == "ben" then BensBalance += transaction["amount"]
-elsif transaction["to_user"] == "brian" then BriansBalance += transaction["amount"]
-elsif transaction["to_user"] == "evan" then EvansBalance += transaction["amount"]
-elsif transaction["to_user"] == "anthony" then AnthonysBalance += transaction["amount"]
-elsif transaction["from_user"] == "ben" then BensBalance -= transaction["amount"]
-  elsif transaction["from_user"] == "brian" then BriansBalance -= transaction["amount"]
-  elsif transaction["from_user"] == "evan" then EvansBalance -= transaction["amount"]
-  elsif transaction["from_user"] == "anthony" then AnthonysBalance -= transaction["amount"]
-  end
 
 
 # Write code below that returns the number of KelloggCoin that each user has in their 
@@ -48,12 +32,30 @@ elsif transaction["from_user"] == "ben" then BensBalance -= transaction["amount"
 
 # 👇👇👇 Your code HERE 👇👇👇
 
+bens_Balance = 0
+brians_Balance = 0
+evans_Balance = 0
+anthonys_Balance = 0
 
 
 
-puts "Ben's KelloggCoin Balance is #{BensBalance}"
-puts "Brian's KelloggCoin Balance is #{BriansBalance}"
-puts "Evan's KelloggCoin Balance is #{EvansBalance}"
-puts "Anthony's KelloggCoin Balance is #{AnthonysBalance}"
+for transaction in blockchain
+if transaction["to_user"] == "ben" then bens_Balance += transaction["amount"]
+elsif transaction["to_user"] == "brian" then brians_Balance += transaction["amount"]
+elsif transaction["to_user"] == "evan" then evans_Balance += transaction["amount"]
+elsif transaction["to_user"] == "anthony" then anthonys_Balance += transaction["amount"]
+end
+if transaction["from_user"] == "ben" then bens_Balance -= transaction["amount"]
+  elsif transaction["from_user"] == "brian" then brians_Balance -= transaction["amount"]
+  elsif transaction["from_user"] == "evan" then evans_Balance -= transaction["amount"]
+  elsif transaction["from_user"] == "anthony" then anthonys_Balance -= transaction["amount"]
+  end
+end
+
+
+puts "Ben's KelloggCoin Balance is #{bens_Balance}"
+puts "Brian's KelloggCoin Balance is #{brians_Balance}"
+puts "Evan's KelloggCoin Balance is #{evans_Balance}"
+puts "Anthony's KelloggCoin Balance is #{anthonys_Balance}"
 
 
